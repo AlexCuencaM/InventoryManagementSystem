@@ -11,8 +11,8 @@
                 "suppliers": [
                     {
                         "id": 1,
-                        "Name": "Supplier A",
-                        "Address": "Supplier direction"
+                        "name": "Supplier A",
+                        "address": "Supplier direction"
                     }
                 ]
             }
