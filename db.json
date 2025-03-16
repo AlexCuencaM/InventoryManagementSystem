@@ -1,0 +1,21 @@
+{
+    "inventory_items":[
+        {
+            "product_id": 1,
+            "name": "inventory name product",
+            "category": "others",
+            "initial_stock": 500,
+            "current_stock": 500,
+            "product": {
+                "title": "Commercial product",
+                "suppliers": [
+                    {
+                        "id": 1,
+                        "Name": "Supplier A",
+                        "Address": "Supplier direction"
+                    }
+                ]
+            }
+        }
+    ]
+}
