@@ -13,6 +13,11 @@
                         "id": 1,
                         "name": "Supplier A",
                         "address": "Supplier direction"
+                    },
+                    {
+                        "id": 1,
+                        "name": "Supplier B",
+                        "address": "Supplier direction 2"
                     }
                 ]
             }

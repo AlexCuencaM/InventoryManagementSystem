@@ -3,15 +3,14 @@ from models.Supplier import Supplier
 import json
 class InventoryContext:
     def __init__(self):
-        self.inventory_items:list[InventoryItem] = self.__get_inventory_items()
+        self.inventory_items:list[InventoryItem] = self.__adapt_from_json()
 
     def __read_inventory_items(self) -> list[dict]:
         f = open('db.json')
         json_data = json.load(f)
         results = json_data['inventory_items']
         return results
-    
-    def __get_inventory_items(self)-> list[InventoryItem]:
+    def __adapt_from_json(self)-> list[InventoryItem]:
         json_data = self.__read_inventory_items()
         results: list[InventoryItem] = []
         for items in json_data:
@@ -31,3 +30,6 @@ class InventoryContext:
             results.append(new_inventory_item)
         return results
 
+    def save_changes(self) -> None:
+        with open("db.json", "w") as outfile:
+            json.dumps(self.inventory_items, outfile)
