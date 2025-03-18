@@ -29,10 +29,28 @@ class InventoryItemViews:
         print("MODIFY product with ID: " + str(item.product_id))
         item.name = input("Inventory Product name: ")
         item.category = input("Category: ")
+        item.product.id = item.product_id
         item.product.title = input("Commercial product name: ")
         item.current_stock = self.current_stock_input()
         item.product.price = self.price_input()
-    
+    def create_inventory_items_view(self, existing_item: InventoryItem | None, new_id: int) -> InventoryItem:
+        if existing_item is InventoryItem:
+            print("Product has already exists :()")
+            return
+        item = InventoryItem()
+        item.product_id = new_id
+        item.product.id = new_id
+        item.name = input("Inventory Product name: ")
+        item.category = input("Category: ")
+        item.product.title = input("Commercial product name: ")
+        item.current_stock = self.current_stock_input()
+        item.product.price = self.price_input()
+        return item
+    def delete_inventory_item_view(self, has_deleted:bool) -> None:
+        if has_deleted is False:
+            print("Product not found :(")
+            return
+        print("Deleted product !!")
     def current_stock_input(self):
         try:
             return int(input("Current stock: ")) 
@@ -42,14 +60,14 @@ class InventoryItemViews:
     
     def price_input(self):
         try:
-            return float(input("Current stock: ")) 
+            return float(input("Price product: ")) 
         except ValueError:
-            print("The id must be a number")
+            print("The Price must be a number")
             return self.price_input()
 
     def search_product_by_id(self) -> int:
         try:
-            return int(input("Search the product on inventory by id: ")) 
+            return int(input("Write the product on inventory by id: ")) 
         except ValueError:
             print("The id must be an integer")
             return self.search_product_by_id()

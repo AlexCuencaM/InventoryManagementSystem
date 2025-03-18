@@ -1,5 +1,6 @@
 from models.InventoryItem import InventoryItem
 from models.Supplier import Supplier
+import jsonpickle
 import json
 class InventoryContext:
     def __init__(self):
@@ -32,5 +33,8 @@ class InventoryContext:
         return results
 
     def save_changes(self) -> None:
+        obj = {
+            "inventory_items":self.inventory_items
+        }
         with open("db.json", "w") as outfile:
-            json.dumps(self.inventory_items, outfile)
+            outfile.write(jsonpickle.encode(obj, unpicklable=False, indent=4))

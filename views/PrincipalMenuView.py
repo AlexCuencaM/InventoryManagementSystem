@@ -21,7 +21,7 @@ class PrincipalMenuView:
     def select_view(self, option:int) -> None | bool:
         if option == 1:
             print("*****Crear productos*****")
-            self.create_product()
+            self.controller.create_inventory_items()
         elif option == 2:
             print("*****Borrar productos*****")
             self.delete_product()

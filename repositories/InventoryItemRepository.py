@@ -16,14 +16,15 @@ class InventoryItemRepository:
         if item is None:
             return
         current_inventory_item = self.get_inventory_items_by_id(item.product_id)
-        self.insert_inventory_item(current_inventory_item)
+        self.context.inventory_items.remove(current_inventory_item)
+        self.insert_inventory_item(item)
         self.context.save_changes()
     def delete_inventory_item(self, id:int) -> bool:
-        hasDeleted = False
+        has_deleted = False
         current_inventory_item = self.get_inventory_items_by_id(id)
         if(current_inventory_item is None):
-            return hasDeleted
+            return has_deleted
         self.context.inventory_items.remove(current_inventory_item)
         self.context.save_changes()
-        hasDeleted = True
-        return hasDeleted
+        has_deleted = True
+        return has_deleted
