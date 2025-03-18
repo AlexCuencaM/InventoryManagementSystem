@@ -35,15 +35,7 @@ class PrincipalMenuView:
             return self.exit_menu()
         else:
             print("[ERROR] Opción no válida, intente de nuevo")
-    
-    def create_product(self):
-        pass
-    def modify_product(self):
-        pass
-    def delete_product(self):
-        pass
-    def select_product(self):
-        pass
+            
     def exit_menu(self) -> bool:
         print("[INFO] Saliendo del sistema...")
         return True
