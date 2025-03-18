@@ -7,4 +7,10 @@ class InventoryItemController:
     def get_inventory_items(self) -> None:
         data = self.__repository.get_inventory_items()
         self.__inventory_items_view.get_inventory_items_view(data)
+    def modify_inventory_items(self) -> None:
+        id = self.__inventory_items_view.search_product_by_id()
+        data = self.__repository.get_inventory_items_by_id(id)
+        self.__inventory_items_view.modify_inventory_items_view(data)
+        self.__repository.update_inventory_item(data)
 
+    

@@ -8,6 +8,7 @@
             "current_stock": 500,
             "product": {
                 "title": "Commercial product",
+                "price": 55.9,
                 "suppliers": [
                     {
                         "id": 1,

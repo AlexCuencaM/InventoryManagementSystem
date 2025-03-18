@@ -12,7 +12,9 @@ class InventoryItemRepository:
     def insert_inventory_item(self, item:InventoryItem) -> None:
         self.context.inventory_items.append(item)
         self.context.save_changes()
-    def update_inventory_item(self, item:InventoryItem) -> None:
+    def update_inventory_item(self, item:InventoryItem | None) -> None:
+        if item is None:
+            return
         current_inventory_item = self.get_inventory_items_by_id(item.product_id)
         self.insert_inventory_item(current_inventory_item)
         self.context.save_changes()

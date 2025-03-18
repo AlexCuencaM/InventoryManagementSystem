@@ -1,5 +1,6 @@
 from models.InventoryItem import InventoryItem
 class InventoryItemViews:
+
     def get_inventory_items_view(self, data: list[InventoryItem]) -> None:
         repeated_characters = 10
         for product_on_inventory in data:
@@ -16,8 +17,39 @@ class InventoryItemViews:
             for sup in product_on_inventory.product.suppliers:
                 print(dynamic_line)
                 print("Supplier name: " + sup.name)    
-                print("Supplier address:" + sup.address)
+                print("Supplier address: " + sup.address)
                 print(dynamic_line)
             print(dynamic_line)
             print(dynamic_line)
             # print("----------------------------------------------")
+    def modify_inventory_items_view(self, item:InventoryItem | None) -> None:
+        if(item is None):
+            print("Product not found :(")
+            return
+        print("MODIFY product with ID: " + str(item.product_id))
+        item.name = input("Inventory Product name: ")
+        item.category = input("Category: ")
+        item.product.title = input("Commercial product name: ")
+        item.current_stock = self.current_stock_input()
+        item.product.price = self.price_input()
+    
+    def current_stock_input(self):
+        try:
+            return int(input("Current stock: ")) 
+        except ValueError:
+            print("The current_stock must be an integer")
+            return self.current_stock_input()
+    
+    def price_input(self):
+        try:
+            return float(input("Current stock: ")) 
+        except ValueError:
+            print("The id must be a number")
+            return self.price_input()
+
+    def search_product_by_id(self) -> int:
+        try:
+            return int(input("Search the product on inventory by id: ")) 
+        except ValueError:
+            print("The id must be an integer")
+            return self.search_product_by_id()

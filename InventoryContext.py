@@ -21,6 +21,7 @@ class InventoryContext:
             new_inventory_item.initial_stock = items['initial_stock']
             new_inventory_item.product_id = items['product_id']
             new_inventory_item.product.title = items['product']['title']
+            new_inventory_item.product.price = items['product']['price']
             for supplier in items['product']['suppliers']:
                 db_supplier = Supplier()
                 db_supplier.address = supplier['address']
