@@ -24,7 +24,7 @@ class PrincipalMenuView:
             self.controller.create_inventory_items()
         elif option == 2:
             print("*****Borrar productos*****")
-            self.delete_product()
+            self.controller.delete_inventory_item()
         elif option == 3:
             print("*****Modificar productos*****")
             self.controller.modify_inventory_items()

@@ -44,6 +44,7 @@ class InventoryItemViews:
         item.category = input("Category: ")
         item.product.title = input("Commercial product name: ")
         item.current_stock = self.current_stock_input()
+        item.initial_stock = item.current_stock
         item.product.price = self.price_input()
         return item
     def delete_inventory_item_view(self, has_deleted:bool) -> None:

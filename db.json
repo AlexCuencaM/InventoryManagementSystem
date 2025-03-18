@@ -1,14 +1,15 @@
 {
-    "inventory_items":[
+    "inventory_items": [
         {
             "product_id": 1,
-            "name": "inventory name product",
-            "category": "others",
+            "name": "LENOVO B111 8TH GEN",
+            "category": "PC",
             "initial_stock": 500,
-            "current_stock": 500,
+            "current_stock": 9,
             "product": {
-                "title": "Commercial product",
-                "price": 55.9,
+                "id": 1,
+                "title": "Lenovo B111",
+                "price": 900.0,
                 "suppliers": [
                     {
                         "id": 1,
